@@ -1,0 +1,104 @@
+/* Main Navbar */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+}
+
+/* .navbar , .SART ,a{
+  
+} */
+
+
+ .START{
+    display: flex;
+    gap: 20PX;
+    margin-left: 48px;
+
+ }
+
+.START a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.START a:hover {
+  color: #b84141;
+}
+
+
+/* Logo */
+
+.logo {
+  height: 40px;
+  cursor: pointer;
+}
+
+.CENTER {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Right Side Icons */
+
+.END{
+    display: flex;
+    gap: 10px;
+    /* background-color: aqua; */
+}
+.search-box{
+    display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  border-radius: 6px;
+  gap: 6px;
+    transition: border-color 0.3s ease; /* smooth change */
+
+}
+.search-box:focus-within {
+  border-color: red; /* blue (same as Tailwind’s blue-500) */
+}
+.search-box input{
+    border: none;
+  outline: none;
+  font-size: 14px;
+  width: 200px;
+
+}
+
+.icon-bar {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px;    
+  margin-right: 66px;  
+  gap: 30px;       
+  border-radius: 8px;       
+  transition: all 0.2s ease;
+}
+
+.icon :hover {
+  background-color: rgba(0, 0, 0, 0.05); 
+  color: #222;                           
+}
+
+.icon{
+  width: 20px;   
+  height: 16px;
+}
