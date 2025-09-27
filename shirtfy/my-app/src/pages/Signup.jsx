@@ -38,11 +38,7 @@ const Signup = () => {
               placeholder="First Name *"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:border[#58595b] placeholder:text-sm"
             />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:border[#58595b] placeholder:text-sm"
-            />
+           
           </div>
 
           <div>
@@ -60,14 +56,7 @@ const Signup = () => {
                 
            
             
-            <input
-              type="date"
-              placeholder="date *"
-              className="appearance-none w-full px-3 py-1 mt-3 border rounded-md focus:outline-none focus:ring-2 focus:border[#58595b] placeholder:text-sm "
-            />
-            <p className="text-sm text-gray-500 mb-1 px-3 pb-3 pt-1">
-                    (Avail 10% Birthday discount as a member)
-                             </p>
+            
 
             <div className="flex items-center w-full mt-2 border rounded-md focus-within:ring-2 focus-within:ring-[#58595b]">
               <span className="px-3 text-gray-600 font-medium">+91</span>

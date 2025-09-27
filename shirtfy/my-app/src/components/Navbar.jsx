@@ -28,13 +28,13 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="START ">
-          <a href="#" className="font-serif text-[20px]">
+          <a href="#" className="font-sans    text-[20px]">
             MEN
           </a>
-          <a href="#" className="font-serif text-[20px]">
+          <a href="#" className="font-sans text-[20px]">
             WOMEN
           </a>
-          <a href="#" className="font-serif text-[20px]">
+          <a href="#" className="font-sans text-[20px]">
             SNEAKERS
           </a>
         </div>
@@ -94,7 +94,6 @@ export default function Navbar() {
         </div>
       </nav>
             
-      {/* <HomeSection/> */}
     </>
   );
 }
