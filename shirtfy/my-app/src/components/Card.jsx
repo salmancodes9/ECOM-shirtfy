@@ -3,7 +3,7 @@ import React from "react";
 const Card = ({ image, Title, Description, price }) => {
   return (
     
-    <div className="w-64 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 mx-4 inline-block">
+    <div className="w-64  bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow mx-4 inline-block ">
      
       
       <img

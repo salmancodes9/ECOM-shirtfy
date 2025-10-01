@@ -2,9 +2,54 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Type } from "lucide-react";
 import PasswordInput from "../components/PasswordInput";
 
-import React from "react";
+import axios from "axios";
+import { useState } from "react";
 
 const Signup = () => {
+
+   const [formData, setFormData] = useState({
+    phone_number: "",
+    username: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+  });
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+  console.log("Form Data being sent:", formData);
+
+    
+
+  
+    try {
+      const res = await axios.post(
+        "https://kczjvhkd-4000.inc1.devtunnels.ms/api/v1/auth/signUp",  
+        formData
+      );
+
+      setSuccess("Signup successful ✅");
+      console.log("Response:", res.data);
+
+    } catch (err) {
+      console.error("Signup error:", err.response?.data || err.message);
+      setError(err.response?.data?.error || "Something went wrong");
+    }
+  };
+
+ 
+
+
+    
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       {/*full page div here*/}
@@ -30,29 +75,31 @@ const Signup = () => {
           Register with The Souled Store
         </p>
         {/* Form input here */}
-        <form className="space-y-4">
+        <form className="space-y-4" onClick={handleSubmit}>
           <div className="flex gap-2 border-black">
-            {/* <p className="block text-sm font-medium mb-1">Email Address</p> */}
+           
             <input
               type="text"
-              placeholder="First Name *"
+              placeholder="First Name *"  name="username" onChange={handleChange}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:border[#58595b] placeholder:text-sm"
             />
            
           </div>
 
           <div>
-            {/* <label className="block text-sm font-medium mb-1">Password</label> */}
+            
             <input
               type="email"
-              placeholder="Enter your email *"
+              placeholder="Enter your email *" name="email" onChange={handleChange}
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:border[#58595b] placeholder:text-sm "
+
             />
 
               {/* password section */}
-               <PasswordInput placeholder="Choose New Password *" name="password" />
+              
+               <PasswordInput placeholder="Choose New Password *" name="password"  onChange={handleChange} />
 
-               <PasswordInput placeholder="Confirm Password *" name="password" />
+               <PasswordInput placeholder="Confirm Password *" name="confirm_password" onChange={handleChange}/>
                 
            
             
@@ -61,29 +108,28 @@ const Signup = () => {
             <div className="flex items-center w-full mt-2 border rounded-md focus-within:ring-2 focus-within:ring-[#58595b]">
               <span className="px-3 text-gray-600 font-medium">+91</span>
               <input
-                type="tel"
+                type="tel"  name="phone_number" onChange={handleChange}
                 placeholder="Mobile Number(For order status updates)"
                 className="w-full px-3 py-2 outline-none rounded-r-md text-sm "
               />
             </div>
 
-            {/* <div className="text-right mt-1">
-              <a href="#" className="text-sm text-red-500 hover:underline">
-                Forgot Password?
-              </a>
-            </div> */}
+           
           </div>
-
+      {/* <input type="radio" /> */}
           <button
             type="submit"
             className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition"
           >
+      
+
             Register
           </button>
 
           <button
             type="button"
             className="w-full border border-red-400 text-red-500 py-2 rounded-md hover:bg-red-50 transition"
+            // onClick={testAPI}
           >
             Continue with Google
           </button>

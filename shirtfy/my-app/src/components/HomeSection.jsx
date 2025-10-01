@@ -14,6 +14,7 @@ import Card from "./Card.jsx";
 import NewArr from "./NewArr.jsx";
 import CatSec from "./CatSec.jsx";
 import OfClb from "./OfClb.jsx";
+import Footer from "./Footer.jsx";
 
 const HomeSection = () => {
   const products = [
@@ -170,6 +171,55 @@ const HomeSection = () => {
       price: "999",
     },
   ];
+  const footerSections =[
+    {
+      key:1,
+      title: "Need Help",
+      links: [
+      { name: "Contact Us", url: "#" },
+      { name: "Track Order", url: "#" },
+      { name: "Return & Refund", url: "#"},
+      { name: "FAQs", url: "#"},
+
+      
+      ],
+      
+    },
+
+     {
+      key:1,
+      title: "Company",
+      links: [
+      { name: "About Us", url: "#" },
+      { name: "Careers", url: "#" },
+      { name: "Gifts", url: "#"}
+
+      
+      ],
+    },
+     {
+      key:1,
+      title: "More Info",
+      links: [
+      { name: "T&C", url: "#" },
+      { name: "Privacy&Policy", url: "#" },
+      { name: "", url: "#"}
+
+      
+      ],
+    },
+     {
+      key:1,
+      title: "Store Near Me",
+      links: [
+      { name: "fgh", url: "#" },
+      { name: "fgh", url: "#" },
+      { name: "d", url: "#"}
+
+      
+      ],
+    },
+  ]
 
   return (
     <>
@@ -264,11 +314,19 @@ const HomeSection = () => {
       </div>
 
 
-      <div className="card_container ">
+      <div className="card_container pl-8 gap-6 pb-16 pt-6">
         {products.map((item) => (
           <Card image={item.image} Title={item.Title} price={item.price} />
         ))}
       </div>
+
+<footer className="bg-gray-900 text-gray-300 py-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {footerSections.map((section) => (
+          <Footer title={section.title} links={section.links}/>
+        ))}
+      </div>
+      </footer>
     </>
   );
 };
