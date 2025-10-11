@@ -11,10 +11,6 @@ const products = () => {
         
         />
         
-
-
-
-
       </div>
       </>
     

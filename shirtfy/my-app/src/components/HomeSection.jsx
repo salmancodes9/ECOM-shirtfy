@@ -299,7 +299,7 @@ const HomeSection = () => {
           modules={[Navigation, Pagination]}
           spaceBetween={20}
           slidesPerView={3}
-           slidesPerGroup={3}
+          slidesPerGroup={3}
 
           navigation
           pagination={{ clickable: true }}

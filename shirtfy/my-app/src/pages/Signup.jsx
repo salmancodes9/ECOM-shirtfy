@@ -1,32 +1,43 @@
+import React from "react";
 import { Link } from "react-router-dom";
+
 import { ArrowLeft, Type } from "lucide-react";
 import PasswordInput from "../components/PasswordInput";
 
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
+
+
+
 
 const Signup = () => {
 
+
+  // const notify =() => toast("coming   !");
+
+  const navigate = useNavigate();
+
    const [formData, setFormData] = useState({
-    phone_number: "",
+    phone_number: "79451458787",
     username: "",
     email: "",
     password: "",
     confirm_password: "",
   });
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [error, setError] = useState({});   
+  // const [success, setSuccess] = useState(""); 
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value });}
 
-   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
-  console.log("Form Data being sent:", formData);
+const handleSubmit = async (e) => {
+    e.preventDefault();//used to prevent defaults from the web 
+    
 
     
 
@@ -36,22 +47,80 @@ const Signup = () => {
         "https://kczjvhkd-4000.inc1.devtunnels.ms/api/v1/auth/signUp",  
         formData
       );
-
-      setSuccess("Signup successful ✅");
+      toast.success("Signup successful ");
       console.log("Response:", res.data);
+      navigate("/");
 
-    } catch (err) {
-      console.error("Signup error:", err.response?.data || err.message);
-      setError(err.response?.data?.error || "Something went wrong");
+    } 
+    catch (err) {
+      console.log("error printed",err)
+      const newErrors = {};
+      console.log(newErrors);
+
+
+      const errorMsg = err.response?.data?.message || err.response?.data?.error || "Something went wrong";
+            toast.error(errorMsg);
+
+  console.log("Backend Error Message:", errorMsg);
+
+    
+      
+      if(typeof errorMsg === "string" && 
+        errorMsg.toLowerCase().includes("missing required fields")
+      ){
+          const missingFields = errorMsg.toLowerCase().split(":")[1]?.split(",") || [];
+
+      
+      
+      {
+        if(errorMsg.toLowerCase().includes("username")){
+        newErrors.username ="username is required";
+        }
+        
+        if (errorMsg.toLowerCase().includes("email")){
+        newErrors.email="email is required";
+        }
+        if (errorMsg.toLowerCase().includes("password")){
+        newErrors.password="password is required";
+          
+        }
+        if (errorMsg.toLowerCase().includes("confirm_password")){
+            newErrors.confirm_password="confirm password is required" ;
+        }
+        if (errorMsg.toLowerCase().includes("phone_number")){
+          newErrors.phone_number ="Phone number is required";
+        }
+        else if(
+                errorMsg.includes("password and confirm password do not match"))
+        {
+
+          if(errorMsg.includes("password and confirm password do not match")){
+            newErrors.password="password do not match";
+            newErrors.confirm_password = "Passwords do not match!";
+          toast.error("Passwords do not match!");
+          
+          }
+}
+          }
+                setError(newErrors);
+
+        // }
+      }
     }
-  };
 
+  };
+  
  
+
+
 
 
     
   return (
+    
+    
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
+       
       {/*full page div here*/}
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8 border border-gray-300">
         {/*The center of the page where the login section is*/}
@@ -62,7 +131,7 @@ const Signup = () => {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back To Login
         </Link>
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-4"> 
           {" "}
           {/* Logo */}
           <img
@@ -75,7 +144,7 @@ const Signup = () => {
           Register with The Souled Store
         </p>
         {/* Form input here */}
-        <form className="space-y-4" onClick={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="flex gap-2 border-black">
            
             <input
@@ -120,19 +189,24 @@ const Signup = () => {
           <button
             type="submit"
             className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition"
+            
           >
       
 
             Register
           </button>
 
+         
           <button
             type="button"
             className="w-full border border-red-400 text-red-500 py-2 rounded-md hover:bg-red-50 transition"
-            // onClick={testAPI}
+
+            onClick={() => toast.success("Coming soon✌️")}
           >
             Continue with Google
           </button>
+        
+
         </form>
         {/* Signup link here*/}
         <p className="text-center text-sm text-gray-600 mt-4">
@@ -151,11 +225,23 @@ const Signup = () => {
             <span>🔒 Secure Login</span>
             <span>⭐ Premium Quality</span>
             <span>⚡ Fast Delivery</span>
+            
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />
 
+    </div>
+    
+  );
+
+};
 export default Signup;

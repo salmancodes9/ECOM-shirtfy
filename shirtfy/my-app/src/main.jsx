@@ -17,6 +17,7 @@ function MainRoutes(){
           <Route path="/" element={<App />} />
           
           <Route path="/Login" element={< Login />} />
+          
           <Route path="/Signup" element={< Signup />} />
           <Route path="/Cart" element={< Cart />} />
          </Routes>
