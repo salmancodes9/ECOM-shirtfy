@@ -97,7 +97,8 @@ const handleSubmit = async (e) => {
           if(errorMsg.includes("password and confirm password do not match")){
             newErrors.password="password do not match";
             newErrors.confirm_password = "Passwords do not match!";
-          toast.error("Passwords do not match!");
+              toast.error("Passwords do not match!");         
+
           
           }
 }

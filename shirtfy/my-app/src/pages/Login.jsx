@@ -2,12 +2,27 @@ import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../components/PasswordInput";
+import Otp from "./OTP/Otp";
 
+
+function ButtonA({width, padding, border, color = "yellow", title, isDesaibled = false }){
+  return(
+    <>
+    <button disabled={isDesaibled} style={{width:width, padding:padding, borderRadius:border, backgroundColor:color}}>
+
+      {title}
+    </button>
+    </>
+  )
+}
 
 const Login = () => {
   return (
   
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    
+
+      {/* <ButtonA width={"100px"} padding={"50px"} border={"99px"} color={"blue"} title={"I am a kdjflsjf"} isDesaibled={true}/> */}
      
       {/*full page div here*/}
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8 border border-gray-300">
@@ -19,6 +34,7 @@ const Login = () => {
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back To Home
+          {/* <ButtonA title={"i am a new button"} color={"red"}/> */}
         </Link>
         <div className="flex justify-center mb-4">
           {" "}
@@ -61,13 +77,17 @@ const Login = () => {
           >
             Sign In
           </button>
-
+<Link  to="/Otp"
+className="bg-black"
+>
           <button
             type="button"
             className="w-full border border-red-400 text-red-500 py-2 rounded-md hover:bg-red-50 transition"
           >
             Login with OTP
           </button>
+</Link>
+
         </form>
         {/* Signup link here*/}
         <p className="text-center text-sm text-gray-600 mt-4">

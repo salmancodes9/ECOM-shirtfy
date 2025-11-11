@@ -6,6 +6,8 @@ import App from "./App.jsx";
 import Signup from "./pages/Signup";
 import Cart from "./pages/Cart.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Otp from "./pages/OTP/Otp.jsx";
+
 function MainRoutes(){
   const location = useLocation();
   const hideNavbarRoutes = ["/login", "/Signup"]; 
@@ -20,11 +22,14 @@ function MainRoutes(){
           
           <Route path="/Signup" element={< Signup />} />
           <Route path="/Cart" element={< Cart />} />
+          <Route path="otp"  element={<Otp/>}/>
+
          </Routes>
 </>
   )
-
 }
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
@@ -32,3 +37,7 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </StrictMode>
 );
+
+
+
+
