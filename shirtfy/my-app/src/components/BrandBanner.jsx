@@ -1,11 +1,11 @@
 
 
-export const BrandBanner = ({className}) => {
+export const BrandBanner = ({className,}) => {
   return (
     <section className={`bg-brand py-10  ${className}`}>
       <div className="container mx-auto px-4 p-7 bg-red-500 text-[20px]">
         <div className="text-center ">
-          <h2 className="text-2xl lg:text-3xl font-bold text-brand-foreground tracking-wide text-white ">
+          <h2 className={`text-2xl lg:text-3xl font-bold text-brand-foreground tracking-wide text-white` }>
             HOMEGROWN INDIAN BRAND
           </h2>
         </div>

@@ -7,6 +7,9 @@ import Signup from "./pages/Signup";
 import Cart from "./pages/Cart.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Otp from "./pages/OTP/Otp.jsx";
+import TeeSection from "./pages/Tshirtcatlog/TeeSection.jsx";
+// import { SearchContext } from "./context/SearchContext";
+import { SearchProvider } from "./SearchContext.jsx";
 
 function MainRoutes(){
   const location = useLocation();
@@ -17,7 +20,7 @@ function MainRoutes(){
          {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
          <Routes>
           <Route path="/" element={<App />} />
-          
+          <Route path="/TeeSection" element={<TeeSection />} />
           <Route path="/Login" element={< Login />} />
           
           <Route path="/Signup" element={< Signup />} />
@@ -32,8 +35,10 @@ function MainRoutes(){
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-    <MainRoutes/>
+     <BrowserRouter>
+       <SearchProvider>
+        <MainRoutes/>
+      </SearchProvider>
     </BrowserRouter>
   </StrictMode>
 );

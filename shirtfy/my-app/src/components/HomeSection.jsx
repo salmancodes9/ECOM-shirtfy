@@ -10,19 +10,23 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import Card from "./Card.jsx";
+// import Card from "./Card.jsx";
 import NewArr from "./NewArr.jsx";
 import CatSec from "./CatSec.jsx";
 import OfClb from "./OfClb.jsx";
 import Footer from "./Footer.jsx";
+import {useSearch } from "../SearchContext.jsx";
 
 const HomeSection = () => {
+const {searchTerm, setAllProducts} = useSearch();
+
   const products = [
     {
       image: heroFashion,
-      Title: "pro 1",
+      Title: "Pro 1",
       Description: "shirt",
       price: "852",
+      Discount:"300",
     },
 
     {
@@ -34,7 +38,7 @@ const HomeSection = () => {
 
     {
       image:
-        "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1758532645_1790939.jpg?w=480&dpr=1.3",
+        "https://prod-img.thesouledstore.co/public/theSoul/uploads/catalog/product/1758532645_1790939.jpg?w=480&dpr=1.3",
       Title: "pro 2",
       Description: "pant",
       price: "7412",
@@ -66,21 +70,25 @@ const HomeSection = () => {
       key: 1,
       image:
         "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/tshirts_Akc5X8g.jpg?w=480&dpr=1.3",
+      to: "/TeeSection",
     },
     {
       key: 2,
       image:
         "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/pants_1_JIJcfiD.jpg?w=480&dpr=1.3",
+      to: "/pants",
     },
     {
       key: 3,
       image:
         "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/shirts_R3ynauB.jpg?w=480&dpr=1.3",
+      to: "/shirts",
     },
     {
       key: 4,
       image:
         "https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/product-images/sneaker_w6lymZg.jpg?w=480&dpr=1.3",
+      to: "/sneakers",
     },
 
     {
@@ -220,9 +228,23 @@ const HomeSection = () => {
       ],
     },
   ]
+  
+  // Combine all products for search
+  const allSearchableProducts = [...products, ...Article];
+
+  // Update products in context for search dropdown
+  React.useEffect(() => {
+    setAllProducts(allSearchableProducts);
+    console.log(setAllProducts);
+  }, [setAllProducts]);
+
+  const filtered = allSearchableProducts.filter((item) =>
+  item.Title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
+    
       <section className="flex  px-12 py-32 bg-gray-50 ">
         {/**left page */}
         <div className="max-w-lg py-16">
@@ -245,6 +267,7 @@ const HomeSection = () => {
             </button>
           </div>
         </div>
+        
 
         <div className="relative t-4 mt-18  ml-28 p-4 ">
           <img
@@ -270,14 +293,16 @@ const HomeSection = () => {
         <h1 className=" text-2xl font-bold ">NEW ARRIVALS </h1>
       </div>
 
-      <div className="card_container">
-        {Article.map((item) => (
-          <NewArr
-            image={item.image}
-            title={item.Title}
-            description={item.description}
-            price={item.price}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8">
+        {Article.map((item, index) => (
+          <div key={index} id={`product-${item.Title}`}>
+            <NewArr
+              image={item.image}
+              title={item.Title}
+              description={item.description}
+              price={item.price}
+            />
+          </div>
         ))}
       </div>
       <div className="flex items-center justify-center p-6  ">
@@ -286,7 +311,7 @@ const HomeSection = () => {
 
       <div className="card_container">
         {Products.map((item) => (
-          <CatSec image={item.image} />
+          <CatSec key={item.key} image={item.image} to={item.to} />
         ))}
       </div>
 
@@ -313,10 +338,20 @@ const HomeSection = () => {
         </Swiper>
       </div>
 
+      <div className="flex items-center justify-center p-6  ">
+        <h1 className=" text-2xl font-bold ">FEATURED PRODUCTS </h1>
+      </div>
 
-      <div className="card_container pl-8 gap-6 pb-16 pt-6">
-        {products.map((item) => (
-          <Card image={item.image} Title={item.Title} price={item.price} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8">
+        {products.map((item, index) => (
+          <div key={index} id={`product-${item.Title}`}>
+            <NewArr
+              image={item.image}
+              title={item.Title}
+              description={item.Description}
+              price={item.price}
+            />
+          </div>
         ))}
       </div>
 

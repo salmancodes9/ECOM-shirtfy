@@ -6,25 +6,29 @@ import {
   ShoppingCart,
   Import,
 } from "lucide-react";
+import React from "react";
 import { Link } from "react-router-dom";
 import MiniCart from "./MiniCart";
 import MiniProfile from "./MiniProfile";
+import { useLocation } from "react-router-dom";
+import { useSearch } from "../SearchContext";
+import SearchDropdown from "./SearchDropdown";
 
-import { useLocation } from "react-router-dom"
 
 
 import "./Navbar.css";
-<link
-  rel="stylesheeet"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-/>;
 
+export default function Navbar({ products = [] }) {
+  const location = useLocation();
+  const { searchTerm, setSearchTerm, setAllProducts, allProducts } = useSearch();
 
-
-export default function Navbar() {
-  const location = useLocation()
-
-  return (
+  React.useEffect(() => {
+    if (products.length > 0) {
+      setAllProducts(products);
+    }
+  }, [products, setAllProducts]);
+  
+  return (  
     <>
       <nav className="navbar">
         <div className="START ">
@@ -48,13 +52,16 @@ export default function Navbar() {
         </div>
 
         <div className="END ">
-          <div className="search-box  ">
+          <div className="search-box relative">
             <Search size={15} />
             <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               type="text"
               placeholder="What are you looking for?"
               className="font-semibold text-black "
             />
+            <SearchDropdown allProducts={allProducts} />
           </div>
           <div className="icon-bar">
             <MapPin className="icon" />
@@ -65,35 +72,29 @@ export default function Navbar() {
                 <span className="absolute left-0 right-0 -bottom-6 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
               <div className=" absolute right-0 mt-2 hidden group-hover:block" />
-              <MiniProfile/>
+              <MiniProfile />
             </div>
 
             <Heart className="icon" />
 
             {/**here is our work */}
             {location.pathname !== "/cart" && (
+              <div className="relative group ">
+                {/**cart button */}
+                <Link to="/cart">
+                  <ShoppingCart className="icon " />
+                  <span className="absolute left-0 right-0 -bottom-6 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </Link>
 
-            <div className="relative group ">
-              {/**cart button */}
-              <Link to="/cart">
-                <ShoppingCart className="icon " />
-                <span className="absolute left-0 right-0 -bottom-6 h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              </Link>
-
-              {/**dropdown */}
-              <div className=" absolute right-0 mt-2 hidden group-hover:block">
-                <MiniCart />
+                {/**dropdown */}
+                <div className=" absolute right-0 mt-2 hidden group-hover:block">
+                  <MiniCart />
+                </div>
               </div>
-            </div>
-          )}
-        
-            
-           
-            </div> 
-          
+            )}
+          </div>
         </div>
       </nav>
-            
     </>
   );
 }
