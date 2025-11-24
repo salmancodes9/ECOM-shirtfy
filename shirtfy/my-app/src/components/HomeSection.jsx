@@ -245,7 +245,7 @@ const {searchTerm, setAllProducts} = useSearch();
   return (
     <>
     
-      <section className="flex  px-12 py-32 bg-gray-50 ">
+      <section className="flex  px-12 py-32 bg-gray-50 dark:bg-gray-900 ">
         {/**left page */}
         <div className="max-w-lg py-16">
           {/**doubt */}
@@ -268,7 +268,7 @@ const {searchTerm, setAllProducts} = useSearch();
           </div>
         </div>
         
-
+        
         <div className="relative t-4 mt-18  ml-28 p-4 ">
           <img
             src={heroFashion}
@@ -286,16 +286,16 @@ const {searchTerm, setAllProducts} = useSearch();
           </span>
         </div>
       </section>
-      <section className=" -mt-16">
+      <section className=" -mt-16 dark:bg-gray-900 ">
         <BrandBanner className=" relative bottom-12 " />
       </section>
-      <div className="flex items-center justify-center p-6  ">
+      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
         <h1 className=" text-2xl font-bold ">NEW ARRIVALS </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8 dark:bg-gray-900">
         {Article.map((item, index) => (
-          <div key={index} id={`product-${item.Title}`}>
+          <div   key={index} id={`product-${item.Title}`}>
             <NewArr
               image={item.image}
               title={item.Title}
@@ -305,21 +305,21 @@ const {searchTerm, setAllProducts} = useSearch();
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center p-6  ">
+      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
         <h1 className=" text-2xl font-bold ">CATEGORIES </h1>
       </div>
 
-      <div className="card_container">
+      <div className="card_container dark:bg-gray-900">
         {Products.map((item) => (
           <CatSec key={item.key} image={item.image} to={item.to} />
         ))}
       </div>
 
-      <div className="flex items-center justify-center p-6  ">
+      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
         <h1 className=" text-2xl font-bold ">OFFICIAL COLLABS</h1>
       </div>
 
-      <div className="card_container flex flex-row space-x-6 justify-center">
+      <div className="card_container flex flex-row space-x-6 justify-center dark:bg-gray-900">
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={20}
@@ -338,11 +338,11 @@ const {searchTerm, setAllProducts} = useSearch();
         </Swiper>
       </div>
 
-      <div className="flex items-center justify-center p-6  ">
+      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
         <h1 className=" text-2xl font-bold ">FEATURED PRODUCTS </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8 dark:bg-gray-900">
         {products.map((item, index) => (
           <div key={index} id={`product-${item.Title}`}>
             <NewArr

@@ -13,6 +13,7 @@ import MiniProfile from "./MiniProfile";
 import { useLocation } from "react-router-dom";
 import { useSearch } from "../SearchContext";
 import SearchDropdown from "./SearchDropdown";
+import  {useTheme}  from "../ThemeContext";
 
 
 
@@ -27,6 +28,8 @@ export default function Navbar({ products = [] }) {
       setAllProducts(products);
     }
   }, [products, setAllProducts]);
+
+  const { theme, setTheme } = useTheme();
   
   return (  
     <>
@@ -43,15 +46,21 @@ export default function Navbar({ products = [] }) {
           </a>
         </div>
 
-        <div className="CENTER">
+        <div className="CENTER ">
           <img
             src="https://tss-static-images.gumlet.io/non-member-logo2.gif"
             alt="Logo"
             className="logo"
           />
         </div>
-
-        <div className="END ">
+ {/* Theme Toggle Button */}
+            <button 
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="text-2xl cursor-pointer hover:scale-110 transition"
+            >
+              {theme === "light" ? "🌙" : "☀️"}
+            </button>
+        <div className="END">
           <div className="search-box relative">
             <Search size={15} />
             <input
@@ -65,6 +74,9 @@ export default function Navbar({ products = [] }) {
           </div>
           <div className="icon-bar">
             <MapPin className="icon" />
+            
+           
+
             {/**user button */}
             <div className="relative group">
               <Link to="/login">
@@ -98,3 +110,4 @@ export default function Navbar({ products = [] }) {
     </>
   );
 }
+

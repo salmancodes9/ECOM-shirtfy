@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import BASE_URL from "../Config/Url.config";
 
 
 
@@ -22,7 +23,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
    const [formData, setFormData] = useState({
-    phone_number: "79451458787",
+    phone_number: "",
     username: "",
     email: "",
     password: "",
@@ -43,10 +44,20 @@ const handleSubmit = async (e) => {
 
   
     try {
-      const res = await axios.post(
-        "https://kczjvhkd-4000.inc1.devtunnels.ms/api/v1/auth/signUp",  
+      const response  = await axios.post(
+
+        `${BASE_URL}/api/v1/auth/signUp`,
         formData
+
+
       );
+
+
+      // const res = await axios.post(
+      
+      //   // "https://kczjvhkd-4000.inc1.devtunnels.ms/api/v1/auth/signUp",  
+      //   formData
+      // );
       toast.success("Signup successful ");
       console.log("Response:", res.data);
       navigate("/");
@@ -100,12 +111,12 @@ const handleSubmit = async (e) => {
               toast.error("Passwords do not match!");         
 
           
-          }
+          }  
 }
           }
                 setError(newErrors);
 
-        // }
+        
       }
     }
 

@@ -13,7 +13,12 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  @apply transition-colors duration-300;
   
+}
+
+html.dark .navbar {
+  @apply bg-gray-900 text-white;
 }
 
 /* .navbar , .SART ,a{
@@ -37,6 +42,10 @@ body {
 
 .START a:hover {
   color: #b84141;
+}
+
+html.dark .START a {
+  @apply text-gray-200 hover:text-white;
 }
 
 
@@ -81,6 +90,14 @@ body {
 
 }
 
+html.dark .search-box {
+  @apply bg-gray-800 text-white;
+}
+
+html.dark .search-box input {
+  @apply bg-gray-800 text-white;
+}
+
 .icon-bar {
   display: flex;
   background: none;
@@ -93,12 +110,16 @@ body {
   transition: all 0.2s ease;
 }
 
-.icon :hover {
+.icon:hover {
   background-color: rgba(0, 0, 0, 0.05); 
   color: #222;                           
 }
 
-.icon{
+.icon {
   width: 20px;   
   height: 16px;
+}
+
+html.dark .icon {
+  @apply text-gray-200;
 }

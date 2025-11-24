@@ -10,6 +10,7 @@ import Otp from "./pages/OTP/Otp.jsx";
 import TeeSection from "./pages/Tshirtcatlog/TeeSection.jsx";
 // import { SearchContext } from "./context/SearchContext";
 import { SearchProvider } from "./SearchContext.jsx";
+import { ThemeProvider } from "./ThemeContext.jsx";
 
 function MainRoutes(){
   const location = useLocation();
@@ -35,10 +36,12 @@ function MainRoutes(){
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-     <BrowserRouter>
-       <SearchProvider>
-        <MainRoutes/>
-      </SearchProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <SearchProvider>
+          <MainRoutes/>
+        </SearchProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>
 );
