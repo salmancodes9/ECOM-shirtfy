@@ -17,6 +17,7 @@ import OfClb from "./OfClb.jsx";
 import Footer from "./Footer.jsx";
 import {useSearch } from "../SearchContext.jsx";
 
+
 const HomeSection = () => {
 const {searchTerm, setAllProducts} = useSearch();
 

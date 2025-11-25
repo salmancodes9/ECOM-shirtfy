@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme } from "../ThemeContext"; 
+
 
 const NewArr = ( {image , title , description , price}) => {
    

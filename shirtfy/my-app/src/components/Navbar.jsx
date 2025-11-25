@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import { useSearch } from "../SearchContext";
 import SearchDropdown from "./SearchDropdown";
 import  {useTheme}  from "../ThemeContext";
+import Switch from "./switch";
 
 
 
@@ -54,12 +55,18 @@ export default function Navbar({ products = [] }) {
           />
         </div>
  {/* Theme Toggle Button */}
-            <button 
+            {/* <button 
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="text-2xl cursor-pointer hover:scale-110 transition"
             >
+              
               {theme === "light" ? "🌙" : "☀️"}
-            </button>
+            </button> */}
+
+            <Switch
+            checked={theme === "dark"}
+            onCheckedChange={(value) => setTheme(value ? "dark" : "light")}
+            />
         <div className="END">
           <div className="search-box relative">
             <Search size={15} />
