@@ -8,6 +8,7 @@ import Cart from "./pages/Cart.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Otp from "./pages/OTP/Otp.jsx";
 import TeeSection from "./pages/Tshirtcatlog/TeeSection.jsx";
+import ApiTest from "./pages/ApiTest.jsx";
 // import { SearchContext } from "./context/SearchContext";
 import { SearchProvider } from "./SearchContext.jsx";
 import { ThemeProvider } from "./ThemeContext.jsx";
@@ -23,7 +24,7 @@ function MainRoutes(){
           <Route path="/" element={<App />} />
           <Route path="/TeeSection" element={<TeeSection />} />
           <Route path="/Login" element={< Login />} />
-          
+          <Route path="/ApiTest" element={< ApiTest />} />
           <Route path="/Signup" element={< Signup />} />
           <Route path="/Cart" element={< Cart />} />
           <Route path="otp"  element={<Otp/>}/>

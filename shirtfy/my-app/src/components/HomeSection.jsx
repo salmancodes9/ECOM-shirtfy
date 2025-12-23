@@ -15,6 +15,7 @@ import NewArr from "./NewArr.jsx";
 import CatSec from "./CatSec.jsx";
 import OfClb from "./OfClb.jsx";
 import Footer from "./Footer.jsx";
+import ApiTest from "../pages/ApiTest.jsx";
 import {useSearch } from "../SearchContext.jsx";
 
 

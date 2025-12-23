@@ -15,6 +15,7 @@ import { useSearch } from "../SearchContext";
 import SearchDropdown from "./SearchDropdown";
 import  {useTheme}  from "../ThemeContext";
 import Switch from "./switch";
+import ApiTest from "../pages/ApiTest";
 
 
 
@@ -93,9 +94,11 @@ export default function Navbar({ products = [] }) {
               <div className=" absolute right-0 mt-2 hidden group-hover:block" />
               <MiniProfile />
             </div>
-
+            <div>
+              <Link to="/ApiTest">
             <Heart className="icon" />
-
+            </Link>
+</div>
             {/**here is our work */}
             {location.pathname !== "/cart" && (
               <div className="relative group ">
