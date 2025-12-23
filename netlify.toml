@@ -1,4 +1,4 @@
 [build]
-base = "shirfty/my-app"
+base = "shirtfy/my-app"
 command = "npm run build"
 publish = "dist"
