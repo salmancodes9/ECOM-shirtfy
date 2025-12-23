@@ -19,7 +19,7 @@ import ApiTest from "../pages/ApiTest";
 
 
 
-import "./Navbar.css";
+import "./navbar.css";
 
 export default function Navbar({ products = [] }) {
   const location = useLocation();
