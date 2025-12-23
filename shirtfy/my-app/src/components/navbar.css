@@ -80,7 +80,7 @@ html.dark .START a {
 
 }
 .search-box:focus-within {
-  border-color: red; /* blue (same as Tailwind’s blue-500) */
+  border-color: red; /* blue (same as Tailwind's blue-500) */
 }
 .search-box input{
     border: none;
@@ -123,3 +123,4 @@ html.dark .search-box input {
 html.dark .icon {
   @apply text-gray-200;
 }
+

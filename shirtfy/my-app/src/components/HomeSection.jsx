@@ -24,48 +24,42 @@ const {searchTerm, setAllProducts} = useSearch();
 
   const products = [
     {
-      image: heroFashion,
-      Title: "Pro 1",
-      Description: "shirt",
-      price: "852",
-      Discount:"300",
+      image: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1758532645_1790939.jpg?w=480&dpr=1.3",
+      Title: "Classic Black Crew Neck",
+      Description: "Premium Cotton T-Shirt",
+      price: "699",
+      Discount:"200",
     },
 
     {
-      image: heroFashion,
-      Title: "pro 2",
-      Description: "pant",
-      price: "7412",
+      image: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1758531937_4171399.jpg?w=480&dpr=1.3",
+      Title: "Oversized Comfort Fit",
+      Description: "Casual Pullover",
+      price: "899",
     },
 
     {
-      image:
-        "https://prod-img.thesouledstore.co/public/theSoul/uploads/catalog/product/1758532645_1790939.jpg?w=480&dpr=1.3",
-      Title: "pro 2",
-      Description: "pant",
-      price: "7412",
+      image: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1758364800_1199182.jpg?w=480&dpr=1.3",
+      Title: "Premium Denim Jeans",
+      Description: "Slim Fit Blue Denim",
+      price: "1299",
     },
 
     {
-      image: heroFashion,
-      Title: "pro 2",
-      Description: "pant",
-      price: "7412",
+      image: "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1758545195_5475645.jpg?w=480&dpr=1.3",
+      Title: "Cotton Linen Blend Shirt",
+      Description: "Soft White Casual Shirt",
+      price: "999",
     },
 
     {
-      image: heroFashion,
-      Title: "pro 2",
-      Description: "pant",
-      price: "7412",
+      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=480&h=480&fit=crop",
+      Title: "Urban Street Hoodie",
+      Description: "Cozy Fleece Hoodie",
+      price: "1199",
     },
 
-    {
-      image: heroFashion,
-      Title: "pro 2",
-      Description: "pant",
-      price: "7412",
-    },
+   
   ];
   const Products = [
     {
@@ -222,9 +216,9 @@ const {searchTerm, setAllProducts} = useSearch();
       key:1,
       title: "Store Near Me",
       links: [
-      { name: "fgh", url: "#" },
-      { name: "fgh", url: "#" },
-      { name: "d", url: "#"}
+      { name: "Srinagar", url: "#" },
+      { name: "Jammu", url: "#" },
+      { name: "Delhi", url: "#"}
 
       
       ],
@@ -291,11 +285,11 @@ const {searchTerm, setAllProducts} = useSearch();
       <section className=" -mt-16 dark:bg-gray-900 ">
         <BrandBanner className=" relative bottom-12 " />
       </section>
-      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
-        <h1 className=" text-2xl font-bold ">NEW ARRIVALS </h1>
+      <div className="flex items-center justify-center p-6 bg-white dark:bg-gray-950">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">NEW ARRIVALS </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8 dark:bg-gray-900">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8 bg-white dark:bg-gray-950">
         {Article.map((item, index) => (
           <div   key={index} id={`product-${item.Title}`}>
             <NewArr
@@ -307,21 +301,21 @@ const {searchTerm, setAllProducts} = useSearch();
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
-        <h1 className=" text-2xl font-bold ">CATEGORIES </h1>
+      <div className="flex items-center justify-center p-6 bg-gray-50 dark:bg-gray-900">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">CATEGORIES </h1>
       </div>
 
-      <div className="card_container dark:bg-gray-900">
+      <div className="card_container bg-gray-50 dark:bg-gray-900">
         {Products.map((item) => (
           <CatSec key={item.key} image={item.image} to={item.to} />
         ))}
       </div>
 
-      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
-        <h1 className=" text-2xl font-bold ">OFFICIAL COLLABS</h1>
+      <div className="flex items-center justify-center p-6 bg-white dark:bg-gray-950">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">OFFICIAL COLLABS</h1>
       </div>
 
-      <div className="card_container flex flex-row space-x-6 justify-center dark:bg-gray-900">
+      <div className="card_container flex flex-row space-x-6 justify-center bg-white dark:bg-gray-950">
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={20}
@@ -340,11 +334,11 @@ const {searchTerm, setAllProducts} = useSearch();
         </Swiper>
       </div>
 
-      <div className="flex items-center justify-center p-6 dark:bg-gray-900  ">
-        <h1 className=" text-2xl font-bold ">FEATURED PRODUCTS </h1>
+      <div className="flex items-center justify-center p-6 bg-gray-50 dark:bg-gray-900">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">FEATURED PRODUCTS </h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8 dark:bg-gray-900">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12 py-8 bg-gray-50 dark:bg-gray-900">
         {products.map((item, index) => (
           <div key={index} id={`product-${item.Title}`}>
             <NewArr
@@ -357,7 +351,8 @@ const {searchTerm, setAllProducts} = useSearch();
         ))}
       </div>
 
-<footer className="bg-gray-900 text-gray-300 py-12">
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 py-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {footerSections.map((section) => (
           <Footer title={section.title} links={section.links}/>

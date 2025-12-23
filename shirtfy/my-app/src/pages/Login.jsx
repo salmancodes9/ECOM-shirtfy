@@ -78,11 +78,11 @@ const Login = () => {
             Sign In
           </button>
 <Link  to="/Otp"
-className="bg-black"
+className=""
 >
           <button
             type="button"
-            className="w-full border border-red-400 text-red-500 py-2 rounded-md hover:bg-red-50 transition"
+            className="w-full border border-red-500 text-red-500 py-2 rounded-md hover:bg-red-50 transition mt-2"
           >
             Login with OTP
           </button>

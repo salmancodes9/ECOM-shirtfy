@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = ({ title, links }) => {
   return (
-    <div className="">
+    <div className=" p-5">
       {/* Section Title */}
-      <h3 className="text-white font-semibold mb-4">{title}</h3>
+      <h3 className="text-gray-900 dark:text-white font-semibold mb-4">{title}</h3>
 
       {/* Links */}
       <ul className="space-y-2">
@@ -12,7 +12,7 @@ const Footer = ({ title, links }) => {
           <li key={i}>
             <a
               href={link.href}
-              className="text-gray-400 hover:text-white transition"
+              className="text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-white transition"
             >
               {link.name}
             </a>
